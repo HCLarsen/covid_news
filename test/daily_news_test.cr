@@ -1,9 +1,6 @@
-require "./spec_helper"
+require "minitest/autorun"
 
-describe DailyNews do
-  # TODO: Write tests
+require "/../src/daily_news.cr"
 
-  it "works" do
-    false.should eq(true)
-  end
+class DailyNewsTest < Minitest::Test
 end

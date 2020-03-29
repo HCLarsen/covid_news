@@ -4,8 +4,8 @@ version: 0.1.0
 dependencies:
   covidapi:
     github: HCLarsen/covidapi
-  rest-countries:
-    github: HCLarsen/rest-countries
+  rest_countries:
+   github: HCLarsen/rest_countries
 
 development_dependencies:
   minitest:

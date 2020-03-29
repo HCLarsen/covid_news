@@ -1,6 +1,12 @@
 name: daily_news
 version: 0.1.0
 
+dependencies:
+  covidapi:
+    github: HCLarsen/covidapi
+  rest-countries:
+    github: HCLarsen/rest-countries
+
 development_dependencies:
   minitest:
     github: ysbaddaden/minitest.cr

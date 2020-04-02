@@ -19,7 +19,7 @@ class CountryStatsTest < Minitest::Test
   def test_calculates_current_stats
     assert_equal 0.00008, @canada.infection_rate.round(5)
     assert_equal 0.009, @canada.mortality_rate.round(3)
-    assert_equal 63, @canada.confirmed.size
+    assert_equal "2020-03-24", @canada.last_date
   end
 
   def test_calculates_new_cases
@@ -30,6 +30,6 @@ class CountryStatsTest < Minitest::Test
   end
 
   def test_calculates_curve
-    assert_equal CountryStats::INCREASING, @canada.curve
+    assert_equal DailyNews::CountryStats::Curve::Increasing, @canada.curve
   end
 end

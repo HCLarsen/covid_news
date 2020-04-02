@@ -35,6 +35,10 @@ module DailyNews
       @history.keys
     end
 
+    def last_date : String
+      dates.last
+    end
+
     def mortality_rate : Float64
       current.deaths / current.confirmed
     end
@@ -53,7 +57,7 @@ module DailyNews
       Hash.zip(dates[1..], new_cases)
     end
 
-    def curve : Int32
+    def curve : Curve
       slopes = new_cases.values
       if slopes[-3] < slopes[-2] < slopes[-1]
         Curve::Increasing

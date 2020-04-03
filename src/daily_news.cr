@@ -6,7 +6,11 @@ module DailyNews
 
   def self.run
     puts "*********************************"
+    puts self.global_covid_report
+    puts "*********************************"
     puts self.covid_report("CAN")
+    puts "*********************************"
+    puts self.covid_report("USA")
     puts "*********************************"
     puts self.covid_report("DNK")
     puts "*********************************"

@@ -10,11 +10,13 @@ module DailyNews
     puts "*********************************"
     puts self.covid_report("CAN")
     puts "*********************************"
-    puts self.covid_report("USA")
+    puts self.covid_short_report("USA")
     puts "*********************************"
-    puts self.covid_report("DNK")
+    puts self.covid_short_report("DNK")
     puts "*********************************"
-    puts self.covid_report("KOR")
+    puts self.covid_short_report("KOR")
+    puts "*********************************"
+    puts self.covid_short_report("ESP")
   end
 end
 

@@ -16,6 +16,14 @@ class CovidReportTest < Minitest::Test
     Curve:            Increasing
     REPORT
 
+    @canada_short_report = <<-REPORT
+    COVID19 Report for Canada 2020-03-24
+    Total Cases:      2790
+    New Cases:        702
+    Mortality Rate:   0.9%
+    Curve:            Increasing
+    REPORT
+
     @global_report = <<-REPORT
     COVID19 Global Report for 2020-03-24
     Total Cases:      418678
@@ -30,6 +38,10 @@ class CovidReportTest < Minitest::Test
 
   def test_prints_country_report
     assert_equal @canada_report, DailyNews.covid_report("CAN")
+  end
+
+  def test_prints_short_country_report
+    assert_equal @canada_short_report, DailyNews.covid_short_report("CAN")
   end
 
   def test_prints_global_report

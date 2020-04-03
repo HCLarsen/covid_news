@@ -8,14 +8,8 @@ module DailyNews
       Decreasing
     end
 
-    getter population : Int32
-    getter history : Hash(String, Covidapi::Result)
-
-    def initialize(country_code : String)
-      history = Covidapi.getCountryHistory(country_code)
-      @history = history.results
-      @population = 0
-    end
+    getter population : Int64 = 0
+    getter history = Hash(String, Covidapi::Result).new
 
     def current : Covidapi::Result
       @history.last_value

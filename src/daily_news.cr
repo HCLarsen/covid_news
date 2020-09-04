@@ -1,12 +1,12 @@
+require "sendgrid"
+
 require "./daily_news/*"
 require "./dir.cr"
 
 module DailyNews
   VERSION = "0.1.0"
 
-  def self.run
-    desktop = Dir.home + "/Desktop"
-    news_file = desktop + "/news.txt"
+  def self.report
     date = Time.local.to_s("%Y-%m-%d")
 
     output = "Daily Report for #{date}"
@@ -18,12 +18,20 @@ module DailyNews
     output +=  self.covid_short_report("USA")
     output += "\n*********************************\n"
     output +=  self.covid_short_report("DNK")
-    output += "\n*********************************\n"
-    output +=  self.covid_short_report("KOR")
-    output += "\n*********************************\n"
-    output +=  self.covid_short_report("ESP")
 
-    File.write(news_file, output)
+    output
+  end
+
+  def self.email_report
+    report = self.report
+  end
+
+  def self.run
+    desktop = Dir.home + "/Desktop"
+    news_file = desktop + "/news.txt"
+
+    report = self.report
+    File.write(news_file, report)
   end
 end
 

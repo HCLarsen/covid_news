@@ -1,4 +1,4 @@
-require "sendgrid"
+require "email"
 
 require "./daily_news/*"
 require "./dir.cr"
@@ -24,6 +24,22 @@ module DailyNews
 
   def self.email_report
     report = self.report
+
+    email = EMail::Message.new
+    email.from    ENV["EMAILFROM"]
+    email.to      ENV["EMAILTO"]
+    email.subject "Daily Report"
+    email.message report
+
+    config = EMail::Client::Config.new(ENV["EMAILSERVER"], ENV["PORT"].to_i)
+    config.use_tls(EMail::Client::TLSMode::STARTTLS)
+    config.use_auth(ENV["EMAILFROM"], ENV["PASSWORD"])
+
+    client = EMail::Client.new(config)
+
+    client.start do
+      send(email)
+    end
   end
 
   def self.run
@@ -35,4 +51,4 @@ module DailyNews
   end
 end
 
-DailyNews.run
+DailyNews.email_report

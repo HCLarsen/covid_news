@@ -6,8 +6,9 @@ dependencies:
     github: HCLarsen/covidapi
   rest_countries:
    github: HCLarsen/rest_countries
-  sendgrid:
-    github: dlanileonardo/sendgrid.cr
+  email:
+    github: arcage/crystal-email
+    version: 0.6.2
 
 development_dependencies:
   minitest:
@@ -24,6 +25,6 @@ targets:
   daily_news:
     main: src/daily_news.cr
 
-crystal: 0.32.1
+crystal: 0.35.1
 
 license: MIT

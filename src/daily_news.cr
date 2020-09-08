@@ -6,6 +6,20 @@ require "./dir.cr"
 module DailyNews
   VERSION = "0.1.0"
 
+  def self.email_report
+    report = self.report
+
+    email = EMail::Message.new
+    email.from    ENV["EMAILFROM"]
+    email.to      ENV["EMAILTO"]
+    email.subject "Daily Report"
+    email.message report
+
+    client.start do
+      send(email)
+    end
+  end
+
   def self.report
     date = Time.local.to_s("%Y-%m-%d")
 
@@ -22,24 +36,12 @@ module DailyNews
     output
   end
 
-  def self.email_report
-    report = self.report
-
-    email = EMail::Message.new
-    email.from    ENV["EMAILFROM"]
-    email.to      ENV["EMAILTO"]
-    email.subject "Daily Report"
-    email.message report
-
+  def self.email_setup
     config = EMail::Client::Config.new(ENV["EMAILSERVER"], ENV["PORT"].to_i)
     config.use_tls(EMail::Client::TLSMode::STARTTLS)
     config.use_auth(ENV["EMAILFROM"], ENV["PASSWORD"])
 
-    client = EMail::Client.new(config)
-
-    client.start do
-      send(email)
-    end
+    client = EMail::Client.new(config)    
   end
 
   def self.run

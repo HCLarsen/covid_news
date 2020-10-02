@@ -6,6 +6,8 @@ dependencies:
     github: HCLarsen/covidapi
   rest_countries:
    github: HCLarsen/rest_countries
+  ontario_covid:
+   github: HCLarsen/ontario_covid
   email:
     github: arcage/crystal-email
     version: 0.6.2

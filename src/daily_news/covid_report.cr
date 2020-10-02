@@ -1,3 +1,5 @@
+require "ontario_covid"
+
 class String
   def self.print_stat(label : String, stat : String, position : Int32) : String
     spaces = position - label.size
@@ -50,5 +52,17 @@ module DailyNews
     report += String.print_stat("New Cases:", stats.new_cases.last_value.to_s, 18) + "\n"
     report += String.print_stat("Mortality Rate:", stats.mortality_rate.to_percent(1), 18) + "\n"
     report += String.print_stat("Curve:", stats.curve.to_s, 18)
+  end
+
+  def self.ontario_covid_report : String
+    stats = OntarioCovid.get_recent_status
+    date = stats.latest_date
+    latest = stats.latest
+
+    report = "COVID19 Report for Ontario 2020-09-29\n"
+    report += String.print_stat("Total Cases:", latest.total_cases.to_s, 18) + "\n"
+    report += String.print_stat("New Cases:", latest.cases.to_s, 18) + "\n"
+    report += String.print_stat("Total Deaths:", latest.total_deaths.to_s, 18) + "\n"
+    report += String.print_stat("7 Day Average:", stats.seven_day_average.to_s, 18)
   end
 end

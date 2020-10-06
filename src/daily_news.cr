@@ -27,11 +27,13 @@ module DailyNews
     output += "\n*********************************\n"
     output +=  self.global_covid_report
     output += "\n*********************************\n"
-    output +=  self.covid_report("CAN")
-    output += "\n*********************************\n"
     output +=  self.covid_short_report("USA")
     output += "\n*********************************\n"
     output +=  self.covid_short_report("DNK")
+    output += "\n*********************************\n"
+    output +=  self.covid_report("CAN")
+    output += "\n*********************************\n"
+    output += self.ontario_covid_report
 
     output
   end
@@ -41,7 +43,7 @@ module DailyNews
     config.use_tls(EMail::Client::TLSMode::STARTTLS)
     config.use_auth(ENV["EMAILFROM"], ENV["PASSWORD"])
 
-    client = EMail::Client.new(config)    
+    client = EMail::Client.new(config)
   end
 
   def self.run

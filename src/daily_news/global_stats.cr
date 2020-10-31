@@ -1,6 +1,6 @@
 require "./stats.cr"
 
-module DailyNews
+module CovidNews
   class GlobalStats < Stats
     WORLD_POPULATION = 7775154406
 

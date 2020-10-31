@@ -45,18 +45,18 @@ class CovidReportTest < Minitest::Test
   end
 
   def test_prints_ontario_report
-    assert_equal @ontario_report, DailyNews.ontario_covid_report  
+    assert_equal @ontario_report, CovidNews.ontario_covid_report
   end
 
   def test_prints_country_report
-    assert_equal @canada_report, DailyNews.covid_report("CAN")
+    assert_equal @canada_report, CovidNews.country_report("CAN")
   end
 
   def test_prints_short_country_report
-    assert_equal @canada_short_report, DailyNews.covid_short_report("CAN")
+    assert_equal @canada_short_report, CovidNews.covid_short_report("CAN")
   end
 
   def test_prints_global_report
-    assert_equal @global_report, DailyNews.global_covid_report
+    assert_equal @global_report, CovidNews.global_covid_report
   end
 end

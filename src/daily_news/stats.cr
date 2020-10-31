@@ -1,6 +1,6 @@
 require "covidapi"
 
-module DailyNews
+module CovidNews
   abstract class Stats
     enum Curve
       Increasing

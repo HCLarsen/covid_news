@@ -6,7 +6,7 @@ require "/../src/daily_news/global_stats.cr"
 class GlobalStatsTest < Minitest::Test
   def initialize(args)
     super(args)
-    @world = DailyNews::GlobalStats.new
+    @world = CovidNews::GlobalStats.new
   end
 
   def test_initializes
@@ -29,6 +29,6 @@ class GlobalStatsTest < Minitest::Test
   end
 
   def test_calculates_curve
-    assert_equal DailyNews::CountryStats::Curve::Steady, @world.curve
+    assert_equal CovidNews::CountryStats::Curve::Steady, @world.curve
   end
 end

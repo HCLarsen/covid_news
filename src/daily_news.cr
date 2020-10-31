@@ -7,7 +7,7 @@ module DailyNews
   VERSION = "0.1.0"
 
   def self.email_report
-    report = self.report
+    report = self.report(["CAN"], ["USA", "DNK"])
 
     email = EMail::Message.new
     email.from    ENV["EMAILFROM"]
@@ -20,25 +20,25 @@ module DailyNews
     end
   end
 
-  def self.report
+  def self.report(long : Array(String), short : Array(String))
     date = Time.local.to_s("%Y-%m-%d")
 
     output = "Daily Report for #{date}"
     output += "\n*********************************\n"
-    output +=  self.global_covid_report
+    output +=  CovidNews.global_covid_report
     output += "\n*********************************\n"
-    output +=  self.covid_short_report("USA")
+    output +=  CovidNews.covid_short_report("USA")
     output += "\n*********************************\n"
-    output +=  self.covid_short_report("DNK")
+    output +=  CovidNews.covid_short_report("DNK")
     output += "\n*********************************\n"
-    output +=  self.covid_report("CAN")
+    output +=  CovidNews.country_report("CAN")
     output += "\n*********************************\n"
-    output += self.ontario_covid_report
+    output += CovidNews.ontario_covid_report
 
     output
   end
 
-  def self.email_setup
+  def self._setup_email
     config = EMail::Client::Config.new(ENV["EMAILSERVER"], ENV["PORT"].to_i)
     config.use_tls(EMail::Client::TLSMode::STARTTLS)
     config.use_auth(ENV["EMAILFROM"], ENV["PASSWORD"])
@@ -50,9 +50,9 @@ module DailyNews
     desktop = Dir.home + "/Desktop"
     news_file = desktop + "/news.txt"
 
-    report = self.report
+    report = self.report(["CAN"], ["USA", "DNK"])
     File.write(news_file, report)
   end
 end
 
-DailyNews.email_report
+DailyNews.run

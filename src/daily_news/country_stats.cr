@@ -2,7 +2,7 @@ require "rest_countries"
 
 require "./stats.cr"
 
-module DailyNews
+module CovidNews
   class CountryStats < Stats
     getter name : String
 

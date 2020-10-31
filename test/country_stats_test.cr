@@ -6,7 +6,7 @@ require "/../src/daily_news/country_stats.cr"
 class CountryStatsTest < Minitest::Test
   def initialize(args)
     super(args)
-    @canada = DailyNews::CountryStats.new("CAN")
+    @canada = CovidNews::CountryStats.new("CAN")
   end
 
   def test_initializes
@@ -30,6 +30,6 @@ class CountryStatsTest < Minitest::Test
   end
 
   def test_calculates_curve
-    assert_equal DailyNews::CountryStats::Curve::Increasing, @canada.curve
+    assert_equal CovidNews::CountryStats::Curve::Increasing, @canada.curve
   end
 end

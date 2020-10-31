@@ -14,9 +14,9 @@ struct Float64
   end
 end
 
-module DailyNews
+module CovidNews
   def self.global_covid_report
-    stats = DailyNews::GlobalStats.new
+    stats = CovidNews::GlobalStats.new
     date = stats.last_date
 
     report = "COVID19 Global Report for #{date}\n"
@@ -29,8 +29,8 @@ module DailyNews
     report += String.print_stat("Curve:", stats.curve.to_s, 18)
   end
 
-  def self.covid_report(country_code : String) : String
-    stats = DailyNews::CountryStats.new(country_code)
+  def self.country_report(country_code : String) : String
+    stats = CovidNews::CountryStats.new(country_code)
     date = stats.last_date
 
     report = "COVID19 Report for #{stats.name} #{date}\n"
@@ -44,7 +44,7 @@ module DailyNews
   end
 
   def self.covid_short_report(country_code : String) : String
-    stats = DailyNews::CountryStats.new(country_code)
+    stats = CovidNews::CountryStats.new(country_code)
     date = stats.last_date
 
     report = "COVID19 Report for #{stats.name} #{date}\n"

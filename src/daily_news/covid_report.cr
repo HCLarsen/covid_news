@@ -9,8 +9,7 @@ end
 
 struct Float64
   def to_percent(decimal = 3)
-    value = (self * 100).round(decimal)
-    string = sprintf("%f", value).rstrip("0") + "%"
+    sprintf("%2.#{decimal}f%%", self * 100)
   end
 end
 

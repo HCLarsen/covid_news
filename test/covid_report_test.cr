@@ -1,6 +1,6 @@
 require "minitest/autorun"
 
-require "/../src/daily_news/covid_report.cr"
+require "/../src/covid_news/covid_report.cr"
 
 class CovidReportTest < Minitest::Test
   def initialize(args)

@@ -1,7 +1,7 @@
 require "minitest/autorun"
 
 require "./webmocks"
-require "/../src/daily_news/global_stats.cr"
+require "/../src/covid_news/global_stats.cr"
 
 class GlobalStatsTest < Minitest::Test
   def initialize(args)

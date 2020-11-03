@@ -1,6 +1,6 @@
 require "email"
 
-require "./daily_news/*"
+require "./covid_news/*"
 require "./dir.cr"
 
 module DailyNews

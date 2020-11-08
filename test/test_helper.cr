@@ -1,2 +1,2 @@
 require "spec"
-require "../src/daily_news"
+require "../src/covid_news"

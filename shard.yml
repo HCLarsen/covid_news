@@ -1,4 +1,4 @@
-name: daily_news
+name: covid_news
 version: 0.1.0
 
 dependencies:
@@ -24,8 +24,8 @@ authors:
   - Chris Larsen <clarsendev@protonmail.com>
 
 targets:
-  daily_news:
-    main: src/daily_news.cr
+  covid_news:
+    main: src/covid_news.cr
 
 crystal: 0.35.1
 

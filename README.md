@@ -1,4 +1,4 @@
-# covid_news
+# COVID News
 
 Provides news updates on various topics, including the current COVID19 pandemic.
 

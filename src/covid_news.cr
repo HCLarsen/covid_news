@@ -54,5 +54,3 @@ module covidNews
     File.write(news_file, report)
   end
 end
-
-covidNews.run

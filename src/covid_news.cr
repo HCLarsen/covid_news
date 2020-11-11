@@ -3,7 +3,7 @@ require "email"
 require "./covid_news/*"
 require "./dir.cr"
 
-module covidNews
+module CovidNews
   VERSION = "0.1.0"
 
   def self.email_report

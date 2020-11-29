@@ -32,8 +32,8 @@ class CovidNewsTest < Minitest::Test
     COVID19 Report for Ontario 2020-09-29
     Total Cases:      51085
     New Cases:        554
-    Total Deaths:     2844
     7 Day Average:    476
+    Total Deaths:     2844
     REPORT
 
     @short = <<-REPORT
@@ -57,8 +57,8 @@ class CovidNewsTest < Minitest::Test
     COVID19 Report for Ontario 2020-09-29
     Total Cases:      51085
     New Cases:        554
-    Total Deaths:     2844
     7 Day Average:    476
+    Total Deaths:     2844
     REPORT
   end
 

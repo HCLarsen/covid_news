@@ -61,7 +61,7 @@ module CovidNews
     report = "COVID19 Report for Ontario 2020-09-29\n"
     report += String.print_stat("Total Cases:", latest.total_cases.to_s, 18) + "\n"
     report += String.print_stat("New Cases:", latest.cases.to_s, 18) + "\n"
-    report += String.print_stat("Total Deaths:", latest.total_deaths.to_s, 18) + "\n"
-    report += String.print_stat("7 Day Average:", stats.seven_day_average.to_s, 18)
+    report += String.print_stat("7 Day Average:", stats.seven_day_average.to_s, 18) + "\n"
+    report += String.print_stat("Total Deaths:", latest.total_deaths.to_s, 18)
   end
 end

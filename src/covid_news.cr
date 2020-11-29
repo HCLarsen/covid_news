@@ -26,12 +26,14 @@ module CovidNews
     output = "Daily Report for #{date}"
     output += "\n*********************************\n"
     output +=  CovidNews.global_covid_report
-    output += "\n*********************************\n"
-    output +=  CovidNews.covid_short_report("USA")
-    output += "\n*********************************\n"
-    output +=  CovidNews.covid_short_report("DNK")
-    output += "\n*********************************\n"
-    output +=  CovidNews.country_report("CAN")
+    short.each do |country|
+      output += "\n*********************************\n"
+      output +=  CovidNews.covid_short_report("#{country}")
+    end
+    long.each do |country|
+      output += "\n*********************************\n"
+      output +=  CovidNews.country_report("#{country}")
+    end
     output += "\n*********************************\n"
     output += CovidNews.ontario_covid_report
 
